@@ -1,11 +1,13 @@
-const loginFormHandler = async (event) => {
+const postFormHandler = async (event) => {
     event.preventDefault();
   
     const title = document.querySelector('#post-title').value.trim();
     const post = document.querySelector('#post-post').value.trim();
   
     if (title && post) {
-      var created_on = getTime();
+      var date = new Date();
+      var created_on = date.toLocaleDateString();
+      console.log(created_on);
 
       const response = await fetch('/api/posts', {
         method: 'POST',
