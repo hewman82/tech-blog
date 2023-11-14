@@ -2,12 +2,14 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     const title = document.querySelector('#post-title').value.trim();
-    const body = document.querySelector('#post-body').value.trim();
+    const post = document.querySelector('#post-post').value.trim();
   
-    if (title && body) {
-      const response = await fetch('/api/users/login', {
+    if (title && post) {
+      var created_on = getTime();
+
+      const response = await fetch('/api/posts', {
         method: 'POST',
-        body: JSON.stringify({ title, body }),
+        body: JSON.stringify({ title, post, created_on }),
         headers: { 'Content-Type': 'application/json' },
       });
   

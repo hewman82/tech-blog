@@ -23,7 +23,7 @@ Post.init(
         type: DataTypes.DATE,
         allowNull: false,
       },
-      body: {
+      post: {
         type: DataTypes.STRING,
         allowNull: false,
       },
