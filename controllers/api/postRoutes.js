@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    res.render('post', post);
+    res.render('singlePost', post);
   } catch (err) {
     res.status(500).json(err);
   }

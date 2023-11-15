@@ -14,15 +14,18 @@
   </div>
 </form>
 
+<br>
+
 {{#if posts}}
 {{#each posts as |post| }}
-<a href="/post/{{post.id}}">
+<a href="/api/posts/{{post.id}}">
     <div class="row align-center mb-5">
         <div class="col-md-6">
             <h2>{{post.title}}</h2>
+            <p>{{post.post}}</p>
         </div>
         <div class="col-md-6">
-            <h3>{{post.created_on}}</h3>
+            <p>{{post.created_on}}</p>
         </div>
     </div>
 </a>

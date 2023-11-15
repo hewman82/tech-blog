@@ -7,7 +7,7 @@ header a:hover {
     text-decoration: none;
 }
 
-.teqki {
+.teki {
     font-family: 'Kdam Thmor Pro', sans-serif;
     display: inline;
     border: 3px solid orange;
@@ -16,6 +16,10 @@ header a:hover {
     background-color: rgba(243, 243, 57, 0.5)
 }
 
-.teqki:hover {
+.teki:hover {
     background-color: rgba(249, 249, 6, 0.5)
+}
+
+.post-content {
+    font-size: 25px;
 }
