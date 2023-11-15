@@ -1,16 +1,17 @@
 <div class="row align-center mb-5">
     <div class="single col-md-12">
-        <h2 class="text-center">{{title}}</h2>
-        <p class="post-content">{{post}}</p>
-        <p class="post-info">Posted by {{creator}} on {{created_on}}</p>
+        <h2 class="text-center">{{post.title}}</h2>
+        <p class="post-content">{{post.post}}</p>
+        <p class="post-info">Posted by {{post.creator}} on {{post.created_on}}</p>
     </div>
 </div>
 
-{{#if comments}}
+{{#if post.comments}}
 <div class="row align-center mb-5">
-    {{#each comments as |comment|}}
+    <h3>Comments</h3>
+    {{#each post.comments as |comment|}}
     <div class="comments col-md-12">
-        <h3>{{comment.content}}</h3>
+        <p>{{comment.content}}<p>
         <p>Posted by {{comment.creator}} on {{comment.created_on}}</p>
     </div>
     {{/each}}
@@ -27,3 +28,5 @@
         </div>
     </form>
 </div>
+
+<script src="/js/addComment.js"></script>

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -20,8 +20,19 @@ router.post('/', async (req, res) => {
 // /project/:id route renders an individual project's details based on the route parameter id
 router.get('/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id);
-
+    const postData = await Post.findByPk(req.params.id, {
+      include: [ 
+        {
+          model: Comment,
+          attributes: [
+            'content',
+            'creator',
+            'created_on'
+          ]
+        },
+      ]
+    });
+    console.log(postData);
     if (!postData) {
       res.status(404).json({ message: 'No post found with this id!' });
       return;
@@ -29,7 +40,7 @@ router.get('/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    res.render('singlePost', post);
+    res.render('singlePost', { post, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }

@@ -16,7 +16,7 @@ const postFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        alert('Post added');
+        document.location.reload();
       } else {
         alert('Failed to add post');
       }
