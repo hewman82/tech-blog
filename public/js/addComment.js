@@ -5,7 +5,7 @@ const commentFormHandler = async (event) => {
   
     if (content) {
       const date = new Date();
-      const created_on = date.toLocaleDateString;
+      const created_on = date.toLocaleDateString();
       const url = document.URL;
       const post_id = url.substring(url.lastIndexOf('/') + 1);
 

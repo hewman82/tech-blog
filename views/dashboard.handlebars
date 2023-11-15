@@ -1,34 +1,32 @@
-<h2>New Post</h2>
-
-<form class="form post-form">
-  <div class="form-group">
-    <label for="post-title">Title:</label>
-    <input class="form-input" type="text" id="post-title" />
-  </div>
-  <div class="form-group">
-    <label for="post-post">Post:</label>
-    <input class="form-input" type="text" id="post-post" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-custom" type="submit">Submit</button>
-  </div>
-</form>
-
-<br>
+<div class="col-md-12 p-5">
+    <h2>New Post</h2>
+    <form class="form post-form">
+    <div class="form-group">
+        <label for="post-title">Title:</label>
+        <input class="form-input" type="text" id="post-title" />
+    </div>
+    <div class="form-group">
+        <label for="post-post">Post:</label>
+        <input class="form-input" type="text" id="post-post" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-custom" type="submit">Submit</button>
+    </div>
+    </form>
+</div>
 
 {{#if posts}}
-{{#each posts as |post| }}
+<div class="col-md-12">
+    {{#each posts as |post| }}
     <div class="row align-center mb-5">
-        <div class="col-md-6 ml-5 p-5">
+        <div class="col-md-6 ml-5 p-3">
             <h2><a href="/api/posts/{{post.id}}">{{post.title}}</a></h2>
             <p class="ml-2">{{post.post}}</p>
             <p>{{post.created_on}}</p> <button class="btn btn-custom edit">Edit</button> <button class="btn delete-btn">Delete</button>
         </div>
-        <div class="col-md-6">
-            
-        </div>
     </div>
-{{/each}}
+    {{/each}}
+</div>
 {{/if}}
 
 <script src="/js/addPost.js"></script>

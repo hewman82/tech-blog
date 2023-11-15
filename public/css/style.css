@@ -1,3 +1,7 @@
+* {
+    background-color: rgba(202, 200, 197, .5);
+}
+
 .btn-custom {
     background-color: #0067ee;
     color: #030303;
@@ -27,6 +31,10 @@ nav a:hover {
     background-color: rgba(249, 249, 6, 0.5);
 }
 
+.post-div {
+    border-bottom: 2px solid white;
+}
+
 .post-content {
     font-size: 25px;
 }
@@ -39,10 +47,10 @@ nav a:hover {
     background-color: rgb(249, 249, 6);
 }
 
-.single-div {
-    border-bottom: 5px solid rgb(43, 160, 249);
+.comments-div h3{
+    font-size: 25px;
 }
 
 .comment-content {
-    font-size: 20px;
+    font-size: 22px;
 }

@@ -1,4 +1,4 @@
-<div class="row align-center mb-5 p-3 single-div">
+<div class="row align-center p-2 post-div">
     <div class="single col-md-12">
         <h2>{{post.title}}</h2>
         <p class="post-content ml-2">{{post.post}}</p>
@@ -7,10 +7,10 @@
 </div>
 
 {{#if post.comments}}
-<div class="row align-center mb-5">
+<div class="row align-center pl-2 pt-2 comments-div">
     <h3>Comments</h3>
     {{#each post.comments as |comment|}}
-    <div class="comments col-md-12">
+    <div class="comments col-md-12 pt-2">
         <p class="comment-content">{{comment.content}}<p>
         <p>Posted by {{comment.creator}} on {{comment.created_on}}</p>
     </div>
@@ -18,7 +18,7 @@
 </div>
 {{/if}}
 
-<div class="row align-center">
+<div class="row align-center p-2">
     <form class="form comment-form">
         <div class="form-group">
             <input class="form-input" type="text" id="comment-input" placeholder="Add a comment" />
