@@ -5,9 +5,8 @@ const postFormHandler = async (event) => {
     const post = document.querySelector('#post-post').value.trim();
   
     if (title && post) {
-      var date = new Date();
-      var created_on = date.toLocaleDateString();
-      console.log(created_on);
+      const date = new Date();
+      const created_on = date.toLocaleDateString();
 
       const response = await fetch('/api/posts', {
         method: 'POST',

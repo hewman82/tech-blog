@@ -4,8 +4,8 @@ const commentFormHandler = async (event) => {
     const content = document.querySelector('#comment-input').value.trim();
   
     if (content) {
-      var date = new Date();
-      var created_on = date.toLocaleDateString();
+      const date = new Date();
+      const created_on = date.toLocaleDateString;
       const url = document.URL;
       const post_id = url.substring(url.lastIndexOf('/') + 1);
 

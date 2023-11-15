@@ -1,25 +1,48 @@
-header a {
-    color: black;
+.btn-custom {
+    background-color: #0067ee;
+    color: #030303;
 }
 
-header a:hover {
-    color: black;
+.btn-custom:hover {
+    background-color: rgb(43, 160, 249);
+}
+
+nav a:hover {
     text-decoration: none;
+    cursor: default;
 }
 
 .teki {
     font-family: 'Kdam Thmor Pro', sans-serif;
     display: inline;
     border: 3px solid orange;
-    margin-right: 10px;
+    margin-right: 50px;
     padding: 4px;
-    background-color: rgba(243, 243, 57, 0.5)
+    background-color: rgba(243, 243, 57, 0.5);
+    color: black;
+    font-size: 20px;
 }
 
 .teki:hover {
-    background-color: rgba(249, 249, 6, 0.5)
+    background-color: rgba(249, 249, 6, 0.5);
 }
 
 .post-content {
     font-size: 25px;
+}
+
+.delete-btn {
+    background-color: orange;
+}
+
+.delete-btn:hover {
+    background-color: rgb(249, 249, 6);
+}
+
+.single-div {
+    border-bottom: 5px solid rgb(43, 160, 249);
+}
+
+.comment-content {
+    font-size: 20px;
 }

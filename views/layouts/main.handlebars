@@ -13,15 +13,15 @@
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <nav>
-      <p class="teki"><a href="/about">teki</a></p>
-      <button class="btn" id="homepage"><a href="/">Homepage</a></button>
-      <button class="btn" id="dashboard"><a href="/dashboard">Dashboard</a></button>
+  <header class="p-5">
+    <nav class="mr-3">
+      <a href="/about"><button class="teki">teki</button></a>
+      <a href="/"><button class="btn btn-custom home-btn" id="homepage">Homepage</button></a>
+      <a href="/dashboard"><button class="btn btn-custom dash-btn" id="dashboard">Dashboard</button></a>
       {{#if logged_in}}
-      <button class="btn" id="logout">Logout</button>
+      <button class="btn btn-custom logout-btn" id="logout">Logout</button>
       {{else}}
-      <button class="btn" id="login"><a href="/login">Login</a></button>
+      <a href="/login"><button class="btn btn-custom login-btn" id="login">Login</button></a>
       {{/if}}
     </nav>
   </header>

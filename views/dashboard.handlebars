@@ -10,7 +10,7 @@
     <input class="form-input" type="text" id="post-post" />
   </div>
   <div class="form-group">
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-custom" type="submit">Submit</button>
   </div>
 </form>
 
@@ -18,17 +18,16 @@
 
 {{#if posts}}
 {{#each posts as |post| }}
-<a href="/api/posts/{{post.id}}">
     <div class="row align-center mb-5">
-        <div class="col-md-6">
-            <h2>{{post.title}}</h2>
-            <p>{{post.post}}</p>
+        <div class="col-md-6 ml-5 p-5">
+            <h2><a href="/api/posts/{{post.id}}">{{post.title}}</a></h2>
+            <p class="ml-2">{{post.post}}</p>
+            <p>{{post.created_on}}</p> <button class="btn btn-custom edit">Edit</button> <button class="btn delete-btn">Delete</button>
         </div>
         <div class="col-md-6">
-            <p>{{post.created_on}}</p>
+            
         </div>
     </div>
-</a>
 {{/each}}
 {{/if}}
 
