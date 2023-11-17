@@ -20,9 +20,13 @@ const hbs = exphbs.create({ helpers });
 // Creates a session object
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
+  resave: true,  
+  rolling: true,
+  saveUninitialized: false,
+  cookie: {
+    expires: 10 * 60000
+  },
+
   store: new SequelizeStore({
     db: sequelize
   })

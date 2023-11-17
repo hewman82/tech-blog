@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Post, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
   try {
@@ -19,7 +18,7 @@ router.post('/', async (req, res) => {
 });
 
 // /project/:id route renders an individual project's details based on the route parameter id
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [ 
