@@ -1,4 +1,5 @@
 const deleteBtns = document.getElementsByClassName('delete-btn');
+const editBtns = document.getElementsByClassName('edit-btn');
 
 const postFormHandler = async (event) => {
   event.preventDefault();
@@ -41,21 +42,56 @@ const deletePost = async (e) => {
     }
   }
 }
+
+const editPost = async (e) => {
+  const parent = e.target.parentNode;
+  const id = parent.id;
+  const title = parent.children[0].children[0].textContent;
+  const postBody = parent.children[1].textContent;
+  parent.innerHTML = `<div class="col-md-12 p-5">
+  <h2>Edit Post</h2>
+  <form class="form update-form">
+  <div class="form-group">
+      <label for="post-title">Title:</label>
+      <input class="form-input" type="text" id="update-title" value="${title}" />
+  </div>
+  <div class="form-group">
+      <label for="post-post">Post:</label>
+      <input class="form-input" type="text" id="update-body" value="${postBody}" />
+  </div>
+  <div class="form-group">
+      <button class="btn btn-custom update-btn" type="submit">Submit</button>
+      <button class="btn delete-btn">Cancel</button>
+  </div>
+  </form>
+</div>`;
+  parent.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const updTitle = e.target.children[0].children[1].value;
+      const updBody = e.target.children[1].children[1].value;
+      console.log(updTitle, updBody, id);
+      const response = await fetch('/api/posts/:id', {
+        method: 'PUT',
+        body: JSON.stringify({ id, updTitle, updBody }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        alert('Failed to update post');
+      }
+  });
+}
   
 document
   .querySelector('.post-form')
   .addEventListener('submit', postFormHandler);
 
-document
-  .querySelector('.edit-btn')
-  .addEventListener('click', function() {
-    window.location.replace('/edit');      
-  });
-
-document
-  .querySelector('.delete-btn')
-  .addEventListener('click', deletePost);
 
 for (let i = 0; i < deleteBtns.length; i++) {
   deleteBtns[i].addEventListener('click', deletePost);
+}
+
+for(let i = 0; i < editBtns.length; i++) {
+  editBtns[i].addEventListener('click', editPost);
 }

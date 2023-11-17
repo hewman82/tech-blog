@@ -69,9 +69,12 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-      const postData = await Post.update({
+      const postData = await Post.update({ 
+        title: req.body.updTitle, post: req.body.updBody 
+      },
+      {
         where: {
-          id: req.params.id,
+          id: req.body.id,
           user_id: req.session.user_id,
         },
       });

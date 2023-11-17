@@ -20,8 +20,8 @@
     {{#each posts as |post| }}
     <div class="row align-center post-div">
         <div class="col-md-6 ml-5 mb-3 p-3" id="{{post.id}}">
-            <h2><a href="/api/posts/{{post.id}}">{{post.title}}</a></h2>
-            <p class="ml-2">{{post.post}}</p>
+            <h2 id="title-text"><a href="/api/posts/{{post.id}}">{{post.title}}</a></h2>
+            <p class="ml-2" id="post-text">{{post.post}}</p>
             <p>{{post.created_on}}</p> <button class="btn btn-custom edit-btn">Edit</button> <button class="btn delete-btn">Delete</button>
         </div>
     </div>
