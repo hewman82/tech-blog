@@ -16,17 +16,17 @@
 </div>
 
 {{#if posts}}
-<div class="col-md-12">
+<div class="col-md-12 posts-div">
     {{#each posts as |post| }}
-    <div class="row align-center mb-5">
-        <div class="col-md-6 ml-5 p-3">
+    <div class="row align-center post-div">
+        <div class="col-md-6 ml-5 mb-3 p-3" id="{{post.id}}">
             <h2><a href="/api/posts/{{post.id}}">{{post.title}}</a></h2>
             <p class="ml-2">{{post.post}}</p>
-            <p>{{post.created_on}}</p> <button class="btn btn-custom edit">Edit</button> <button class="btn delete-btn">Delete</button>
+            <p>{{post.created_on}}</p> <button class="btn btn-custom edit-btn">Edit</button> <button class="btn delete-btn">Delete</button>
         </div>
     </div>
     {{/each}}
 </div>
 {{/if}}
 
-<script src="/js/addPost.js"></script>
+<script src="/js/dashboard.js"></script>
