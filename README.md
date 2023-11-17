@@ -10,10 +10,13 @@
   - [Contributing](#contributing)
   - [License](#license)
   - [Questions](#questions)
+  - [Project Link](#project-link)
 
   ## Description
 
   A platform for developers to share projects, ideas, successes and questions.
+
+  ![Screenshot](https://github.com/hewman82/tech-blog/blob/main/Project-Images/Screenshot%20(1).png)
 
   ## Installation
 
@@ -36,3 +39,7 @@
   Contact me here with any questions
   - [Github](https://github.com/hewman82)
   - Email: hewman82@gmail.com
+
+  ## Project Link
+  
+  [Teki](https://teki-764ed25c7d0d.herokuapp.com/)
