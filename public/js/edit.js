@@ -6,12 +6,15 @@ const editFormHandler = async (event) => {
     
     const title = document.querySelector('#post-title').value.trim();
     const post = document.querySelector('#post-post').value.trim();
+    // Get post values
     
     if (title && post) {
       const date = new Date();
       const created_on = date.toLocaleDateString();
+      // Get current date
   
       const response = await fetch('/api/posts', {
+        // Send post request with values and date
         method: 'POST',
         body: JSON.stringify({ title, post, created_on }),
         headers: { 'Content-Type': 'application/json' },

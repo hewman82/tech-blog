@@ -7,8 +7,6 @@ const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 
-// TODO: Add a comment describing the functionality of this expression
-// Allows you to use session storage
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
@@ -16,24 +14,21 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
 
-// TODO: Add a comment describing the functionality of this object
-// Creates a session object
 const sess = {
   secret: 'Super secret secret',
   resave: true,  
   rolling: true,
+  // Reset expiration countdown on every response
   saveUninitialized: false,
   cookie: {
     expires: 10 * 60000
+    // Define time after which session will expire
   },
-
   store: new SequelizeStore({
     db: sequelize
   })
 };
 
-// TODO: Add a comment describing the functionality of this statement
-// Allows you to use session object
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);

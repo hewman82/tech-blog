@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post } = require('../models');
 const withAuth = require('../utils/auth.js');
 
+// Get homepage populated with all posts
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll();
@@ -17,6 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get login page
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
@@ -26,6 +28,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Get signup page
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
@@ -35,6 +38,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+// Get dashboard
 router.get('/dashboard', withAuth, async (req, res, next) => {
   try {
     const postData = await Post.findAll({

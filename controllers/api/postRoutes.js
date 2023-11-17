@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, Comment } = require('../../models');
 
+// Create new post
 router.post('/', async (req, res) => {
   try {
     const newPost = await Post.create({
@@ -17,7 +18,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// /project/:id route renders an individual project's details based on the route parameter id
+// Get post by id
 router.get('/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -46,6 +47,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Delete post by id
 router.delete('/:id', async (req, res) => {
   try {
     const postData = await Post.destroy({
@@ -66,6 +68,7 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Update post by id
 router.put('/:id', async (req, res) => {
     try {
       const postData = await Post.update({ 
